@@ -1,0 +1,9 @@
+{
+  "name": "cc-codex-plugin",
+  "version": "1.0.0",
+  "description": "Integrate OpenAI Codex CLI for detail-oriented code review and planning",
+  "author": {
+    "name": "thepushkarp"
+  },
+  "keywords": ["codex", "openai", "code-review", "planning"]
+}

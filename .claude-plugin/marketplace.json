@@ -1,0 +1,24 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "cc-codex-plugin",
+  "description": "OpenAI Codex CLI integration for Claude Code - detail-oriented code review and planning",
+  "owner": {
+    "name": "thepushkarp",
+    "email": "thepushkarp@gmail.com"
+  },
+  "plugins": [
+    {
+      "name": "cc-codex-plugin",
+      "description": "Invoke OpenAI Codex for detail-oriented code review, planning, and analysis",
+      "version": "1.0.0",
+      "author": {
+        "name": "thepushkarp"
+      },
+      "source": ".",
+      "category": "integrations",
+      "keywords": ["codex", "openai", "code-review", "planning", "analysis"],
+      "homepage": "https://github.com/thepushkarp/cc-codex-plugin",
+      "repository": "https://github.com/thepushkarp/cc-codex-plugin"
+    }
+  ]
+}
