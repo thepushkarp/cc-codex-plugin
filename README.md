@@ -54,8 +54,7 @@ Use `/codex` to invoke Codex directly:
 ### With Options
 
 ```
-/codex --reasoning xhigh deeply analyze this algorithm's complexity
-/codex --verbose --reasoning high explain this code in detail
+/codex --model gpt-5.2 analyze this algorithm's complexity
 /codex --sandbox workspace-write generate a test file
 ```
 
@@ -63,10 +62,8 @@ Use `/codex` to invoke Codex directly:
 
 | Option | Values | Default | Description |
 |--------|--------|---------|-------------|
-| `--reasoning` | low, medium, high, xhigh | high | Reasoning effort level |
 | `--model` | any model name | gpt-5.2-codex | Model to use |
 | `--sandbox` | read-only, workspace-write, danger-full-access | read-only | Sandbox mode |
-| `--verbose` | (flag) | false | Show thinking tokens |
 
 ### Automatic Delegation
 
@@ -87,15 +84,14 @@ This plugin includes:
 The plugin uses Codex's non-interactive `codex exec` mode to run analysis:
 
 ```bash
-echo "<task>" | codex exec \
+codex exec \
   --model gpt-5.2-codex \
-  --config reasoning_effort=high \
   --sandbox read-only \
-  --ask-for-approval on-request \
-  --skip-git-repo-check
+  "<task>" \
+  2>&1
 ```
 
-Thinking tokens are suppressed by default for clean output (use `--verbose` to see them).
+The task is passed as an inline prompt argument.
 
 ## Troubleshooting
 
@@ -112,7 +108,7 @@ Run `codex login` to authenticate with your OpenAI API key.
 
 ### Timeout on complex tasks
 
-Try `--reasoning high` instead of `xhigh` for faster responses.
+Complex analysis tasks may take time. Be patient or try a simpler task description.
 
 ## License
 

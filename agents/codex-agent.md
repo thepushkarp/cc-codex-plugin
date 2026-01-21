@@ -63,23 +63,20 @@ Then authenticate: codex login
 
 ### Step 2: Execute Codex
 
-Run the task through Codex with safe defaults:
+Run the task through Codex with safe defaults (use inline prompt, not piped stdin):
 
 ```bash
-echo "<TASK_FROM_CLAUDE>" | codex exec \
+codex exec \
   --model gpt-5.2-codex \
-  --config reasoning_effort=high \
   --sandbox read-only \
-  --ask-for-approval on-request \
-  --skip-git-repo-check \
-  2>/dev/null
+  "<TASK_FROM_CLAUDE>" \
+  2>&1
 ```
 
 **Always use these defaults:**
 - Model: `gpt-5.2-codex` (optimized for code tasks)
-- Reasoning: `high` (thorough but not excessive)
 - Sandbox: `read-only` (safe - analysis only)
-- Stderr: suppressed (clean output)
+- Capture all output with `2>&1`
 
 ### Step 3: Return Output
 

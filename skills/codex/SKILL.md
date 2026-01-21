@@ -31,17 +31,15 @@ Users invoke directly with optional flags:
 
 ```
 /codex review the authentication middleware for security issues
-/codex --reasoning xhigh deeply analyze this algorithm
-/codex --verbose plan the database refactoring
+/codex --model gpt-5.2 analyze this algorithm
+/codex --sandbox workspace-write generate tests for this module
 ```
 
 **Available flags:**
 | Flag | Values | Default |
 |------|--------|---------|
-| `--reasoning` | low, medium, high, xhigh | high |
 | `--model` | any model name | gpt-5.2-codex |
 | `--sandbox` | read-only, workspace-write, danger-full-access | read-only |
-| `--verbose` | (flag) | false |
 
 ### Method 2: Spawning codex-agent
 
@@ -53,29 +51,24 @@ When Claude determines Codex would add value, spawn the `codex-agent` subagent:
 [Synthesize Codex's findings with own analysis]
 ```
 
-The agent always uses safe defaults (gpt-5.2-codex, high reasoning, read-only sandbox).
+The agent always uses safe defaults (gpt-5.2-codex, read-only sandbox).
 
 ## CLI Reference
 
-Core command pattern for non-interactive execution:
+Core command pattern for non-interactive execution (use inline prompt, not piped stdin):
 
 ```bash
-echo "<prompt>" | codex exec \
+codex exec \
   --model gpt-5.2-codex \
-  --config reasoning_effort=high \
   --sandbox read-only \
-  --ask-for-approval on-request \
-  --skip-git-repo-check \
-  2>/dev/null
+  "<prompt>" \
+  2>&1
 ```
 
 **Key flags:**
 - `--model, -m` - Model to use (gpt-5.2-codex recommended for code tasks)
-- `--config reasoning_effort=<level>` - Reasoning depth (low/medium/high/xhigh)
 - `--sandbox, -s` - Execution permissions (read-only safest)
-- `--ask-for-approval, -a` - When to pause for human approval
-- `--skip-git-repo-check` - Always include (works in non-git directories)
-- `2>/dev/null` - Suppresses thinking tokens for clean output
+- `2>&1` - Capture all output
 
 **Note:** Interactive slash commands like `/review` only work in Codex's interactive mode, not via `codex exec`.
 
@@ -100,13 +93,12 @@ For more info: https://developers.openai.com/codex/cli
 ### Common Issues
 
 - **API key issues**: User needs to run `codex login` to authenticate
-- **Timeout**: Complex tasks may take time - consider `--reasoning high` instead of `xhigh`
+- **Timeout**: Complex tasks may take time
 - **Sandbox errors**: If Codex needs to write files, user must specify `--sandbox workspace-write`
 
 ## Best Practices
 
-1. **Start with defaults** - gpt-5.2-codex with high reasoning works well for most tasks
-2. **Use xhigh sparingly** - Only for truly complex analysis where depth matters
-3. **Keep read-only sandbox** - Unless task explicitly requires file modifications
-4. **Be specific in prompts** - Tell Codex exactly what to look for
-5. **Synthesize results** - When using codex-agent, combine Codex's findings with Claude's analysis
+1. **Start with defaults** - gpt-5.2-codex works well for most tasks
+2. **Keep read-only sandbox** - Unless task explicitly requires file modifications
+3. **Be specific in prompts** - Tell Codex exactly what to look for
+4. **Synthesize results** - When using codex-agent, combine Codex's findings with Claude's analysis
