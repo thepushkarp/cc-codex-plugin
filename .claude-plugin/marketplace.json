@@ -14,7 +14,7 @@
       "author": {
         "name": "thepushkarp"
       },
-      "source": ".",
+      "source": "./",
       "category": "integrations",
       "keywords": ["codex", "openai", "code-review", "planning", "analysis"],
       "homepage": "https://github.com/thepushkarp/cc-codex-plugin",
