@@ -102,3 +102,64 @@ For more info: https://developers.openai.com/codex/cli
 2. **Keep read-only sandbox** - Unless task explicitly requires file modifications
 3. **Be specific in prompts** - Tell Codex exactly what to look for
 4. **Synthesize results** - When using codex-agent, combine Codex's findings with Claude's analysis
+
+## Prompting Best Practices
+
+GPT-5.2-codex responds best to explicit, scoped prompts with concrete constraints.
+
+### Core Principles
+
+1. **Scope discipline** - Be explicit about boundaries
+   - DO: "Review ONLY the auth flow. Do NOT suggest unrelated improvements."
+   - DON'T: "Review this code" (too open-ended)
+
+2. **Bias toward action** - Request concrete output
+   - DO: "List specific bugs found with file:line references"
+   - DON'T: "Tell me what you think about this code"
+
+3. **No preambles** - Skip status updates
+   - Add to prompts: "Skip preambles. Lead with findings."
+
+4. **Structured output** - Request specific formats
+   - "Format: `file.ts:line` - issue description"
+
+### Task-Specific Prompt Templates
+
+#### Security Review
+```
+Review <file/module> for security vulnerabilities.
+Focus ONLY on: auth, injection, data exposure, access control.
+Do NOT suggest style changes or refactoring.
+Format each finding as: `file:line` - severity - issue
+Skip preambles.
+```
+
+#### Bug Hunting
+```
+Find bugs in <file/module>.
+Look for: edge cases, off-by-one, null handling, race conditions.
+ONLY report actual bugs, not style issues.
+Format: `file:line` - bug description - suggested fix
+Skip preambles. Lead with findings.
+```
+
+#### Implementation Planning
+```
+Create implementation plan for: <feature>.
+Constraints: <existing patterns to follow>.
+Output structure:
+1. Overview
+2. Files to modify (with line ranges)
+3. Implementation steps
+4. Edge cases to handle
+Do NOT include code samples unless critical. Skip preambles.
+```
+
+#### Code Review
+```
+Review <file> for correctness and reliability.
+Focus ONLY on: logic errors, missing error handling, incorrect assumptions.
+Ignore: style, naming, formatting.
+Format: `file:line` - issue - recommendation
+Skip preambles.
+```

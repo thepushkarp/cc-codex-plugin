@@ -93,4 +93,25 @@ Return Codex's output to the user. If the command fails, show the error message.
 
 - Default model `gpt-5.2-codex` is optimized for code tasks
 - Use `--sandbox workspace-write` only when Codex needs to create/modify files
-- Be specific in your task description for better results
+- **Prompting for best results:**
+  - Be specific: "Review auth.py for SQL injection" > "Review auth.py"
+  - Add constraints: "ONLY security issues, no style suggestions"
+  - Set output format: "Format as `file:line` - issue"
+  - Skip fluff: "Skip preambles. Lead with findings."
+
+## Example Prompts
+
+**Security review (scoped):**
+```
+/codex Review auth.py for security vulnerabilities. Focus ONLY on injection, auth bypass, data exposure. Format: file:line - severity - issue. Skip preambles.
+```
+
+**Bug hunting (targeted):**
+```
+/codex Find bugs in sort.py. Look for edge cases, off-by-one errors, null handling. ONLY actual bugs, not style. Format: file:line - bug - fix. Skip preambles.
+```
+
+**Planning (structured):**
+```
+/codex Plan refactoring of database layer. Output: 1) Overview, 2) Files to modify, 3) Steps, 4) Edge cases. No code samples. Skip preambles.
+```

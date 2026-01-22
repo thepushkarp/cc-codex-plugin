@@ -43,12 +43,14 @@ Or install directly from the repository:
 
 ### Explicit Command
 
-Use `/codex` to invoke Codex directly:
+Use `/codex` with scoped, specific prompts:
 
 ```
-/codex review the authentication middleware for security issues
-/codex plan out how to refactor the database layer
-/codex explore edge cases in the payment flow
+/codex Review auth middleware for security issues. ONLY report vulnerabilities, no style suggestions. Format: file:line - issue.
+
+/codex Find bugs in payment flow. Look for edge cases and race conditions. Skip preambles. Lead with findings.
+
+/codex Plan database layer refactor. Output: overview, files to modify, implementation steps. No code samples.
 ```
 
 ### With Options
@@ -57,6 +59,14 @@ Use `/codex` to invoke Codex directly:
 /codex --model gpt-5.2 analyze this algorithm's complexity
 /codex --sandbox workspace-write generate a test file
 ```
+
+### Prompting Tips
+
+For best results with gpt-5.2-codex:
+- **Be specific** - "Review for SQL injection" > "Review code"
+- **Set constraints** - "ONLY bugs, no style issues"
+- **Skip preambles** - "Skip preambles. Lead with findings."
+- **Request format** - "Format: `file:line` - description"
 
 ### Available Options
 
