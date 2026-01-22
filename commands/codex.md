@@ -12,31 +12,7 @@ Invoke OpenAI's Codex CLI for detail-oriented code review, planning, and explora
 
 $ARGUMENTS
 
-## Step 1: Check if Codex is Installed
-
-First, verify the Codex CLI is available:
-
-```bash
-command -v codex >/dev/null 2>&1
-```
-
-If not installed, respond with:
-
-```
-Codex CLI is not installed.
-
-To install:
-  brew install codex
-
-Then authenticate:
-  codex login
-
-For more info: https://developers.openai.com/codex/cli
-```
-
-Do not proceed if Codex is not installed.
-
-## Step 2: Parse Arguments
+## Step 1: Parse Arguments
 
 Extract optional flags from $ARGUMENTS:
 
@@ -53,7 +29,7 @@ Extract optional flags from $ARGUMENTS:
 **Validation errors:**
 - If `--sandbox` has invalid value: "Invalid sandbox mode: '<value>'. Valid: read-only, workspace-write, danger-full-access"
 
-## Step 3: Validate Task
+## Step 2: Validate Task
 
 If no task remains after parsing flags, respond with:
 
@@ -73,7 +49,7 @@ Options:
   --sandbox <mode>     Sandbox: read-only (default), workspace-write, danger-full-access
 ```
 
-## Step 4: Execute Codex
+## Step 3: Execute Codex
 
 Build and execute the command with parsed values (or defaults). Use inline prompt (not piped stdin):
 
@@ -109,7 +85,7 @@ codex exec \
   2>&1
 ```
 
-## Step 5: Return Output
+## Step 4: Return Output
 
 Return Codex's output to the user. If the command fails, show the error message.
 

@@ -93,7 +93,7 @@ For more info: https://developers.openai.com/codex/cli
 ### Common Issues
 
 - **API key issues**: User needs to run `codex login` to authenticate
-- **Timeout**: Complex tasks may take time
+- **Timeout**: Complex tasks may take time. Be patient or try a simpler task description.
 - **Sandbox errors**: If Codex needs to write files, user must specify `--sandbox workspace-write`
 
 ## Best Practices

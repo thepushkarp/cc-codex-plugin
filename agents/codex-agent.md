@@ -45,23 +45,7 @@ You receive tasks from Claude that benefit from Codex's detail-oriented analysis
 
 ## Execution Process
 
-### Step 1: Verify Codex Installation
-
-First check if Codex is available:
-
-```bash
-command -v codex >/dev/null 2>&1
-```
-
-If not installed, return:
-```
-Codex CLI is not installed.
-
-To install: brew install codex
-Then authenticate: codex login
-```
-
-### Step 2: Execute Codex
+### Step 1: Execute Codex
 
 Run the task through Codex with safe defaults (use inline prompt, not piped stdin):
 
@@ -78,7 +62,7 @@ codex exec \
 - Sandbox: `read-only` (safe - analysis only)
 - Capture all output with `2>&1`
 
-### Step 3: Return Output
+### Step 2: Return Output
 
 Return Codex's complete output without modification. Claude will synthesize the findings with its own analysis.
 
