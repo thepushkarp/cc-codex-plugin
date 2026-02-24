@@ -83,14 +83,14 @@ Run with safe defaults (use inline prompt, not piped stdin):
 
 ```bash
 codex exec \
-  --model gpt-5.2-codex \
+  --model gpt-5.3-codex \
   --sandbox read-only \
   "<TRANSFORMED_PROMPT>" \
   2>&1
 ```
 
 **Always use these defaults:**
-- Model: `gpt-5.2-codex` (optimized for code tasks)
+- Model: `gpt-5.3-codex` (optimized for code tasks)
 - Sandbox: `read-only` (safe - analysis only)
 - Capture all output with `2>&1`
 

@@ -18,7 +18,7 @@ Extract optional flags from $ARGUMENTS:
 
 | Flag | Valid Values | Default |
 |------|--------------|---------|
-| `--model` | any model name | gpt-5.2-codex |
+| `--model` | any model name | gpt-5.3-codex |
 | `--sandbox` | read-only, workspace-write, danger-full-access | read-only |
 
 **Parsing rules:**
@@ -45,7 +45,7 @@ Examples:
   /codex --sandbox workspace-write generate tests for this module
 
 Options:
-  --model <name>       Model to use (default: gpt-5.2-codex)
+  --model <name>       Model to use (default: gpt-5.3-codex)
   --sandbox <mode>     Sandbox: read-only (default), workspace-write, danger-full-access
 ```
 
@@ -63,14 +63,14 @@ codex exec \
 
 Where:
 - `<TASK>` = the task text from arguments (passed as inline prompt)
-- `<MODEL>` = parsed --model or "gpt-5.2-codex"
+- `<MODEL>` = parsed --model or "gpt-5.3-codex"
 - `<SANDBOX>` = parsed --sandbox or "read-only"
 - `<STDERR_REDIRECT>` = `2>&1` always (to capture full output)
 
 **Example with defaults:**
 ```bash
 codex exec \
-  --model gpt-5.2-codex \
+  --model gpt-5.3-codex \
   --sandbox read-only \
   "review auth.py for security issues" \
   2>&1
@@ -91,7 +91,7 @@ Return Codex's output to the user. If the command fails, show the error message.
 
 ## Tips
 
-- Default model `gpt-5.2-codex` is optimized for code tasks
+- Default model `gpt-5.3-codex` is optimized for code tasks
 - Use `--sandbox workspace-write` only when Codex needs to create/modify files
 - **Prompting for best results:**
   - Be specific: "Review auth.py for SQL injection" > "Review auth.py"

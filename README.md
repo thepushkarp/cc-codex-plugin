@@ -62,7 +62,7 @@ Use `/codex` with scoped, specific prompts:
 
 ### Prompting Tips
 
-For best results with gpt-5.2-codex:
+For best results with gpt-5.3-codex:
 - **Be specific** - "Review for SQL injection" > "Review code"
 - **Set constraints** - "ONLY bugs, no style issues"
 - **Skip preambles** - "Skip preambles. Lead with findings."
@@ -72,7 +72,7 @@ For best results with gpt-5.2-codex:
 
 | Option | Values | Default | Description |
 |--------|--------|---------|-------------|
-| `--model` | any model name | gpt-5.2-codex | Model to use |
+| `--model` | any model name | gpt-5.3-codex | Model to use |
 | `--sandbox` | read-only, workspace-write, danger-full-access | read-only | Sandbox mode |
 
 ### Automatic Delegation
@@ -95,7 +95,7 @@ The plugin uses Codex's non-interactive `codex exec` mode to run analysis:
 
 ```bash
 codex exec \
-  --model gpt-5.2-codex \
+  --model gpt-5.3-codex \
   --sandbox read-only \
   "<task>" \
   2>&1
