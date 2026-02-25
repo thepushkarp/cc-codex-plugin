@@ -10,7 +10,7 @@
     {
       "name": "cc-codex-plugin",
       "description": "Invoke OpenAI Codex for detail-oriented code review, planning, and analysis",
-      "version": "1.1.1",
+      "version": "1.1.2",
       "author": {
         "name": "thepushkarp"
       },
