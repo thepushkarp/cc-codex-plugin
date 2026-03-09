@@ -41,7 +41,7 @@ Usage:
 
 Examples:
   /codex review the auth middleware for security issues
-  /codex --model gpt-5.2 analyze this algorithm for edge cases
+  /codex --model gpt-5.4 analyze this algorithm for edge cases
   /codex --sandbox workspace-write generate tests for this module
 
 Options:
@@ -79,7 +79,7 @@ codex exec \
 **Example with different model:**
 ```bash
 codex exec \
-  --model gpt-5.2 \
+  --model gpt-5.4 \
   --sandbox read-only \
   "deeply analyze sorting algorithm" \
   2>&1

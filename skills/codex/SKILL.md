@@ -31,7 +31,7 @@ Users invoke directly with optional flags:
 
 ```
 /codex review the authentication middleware for security issues
-/codex --model gpt-5.2 analyze this algorithm
+/codex --model gpt-5.4 analyze this algorithm
 /codex --sandbox workspace-write generate tests for this module
 ```
 

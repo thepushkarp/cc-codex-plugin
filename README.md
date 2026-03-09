@@ -56,7 +56,7 @@ Use `/codex` with scoped, specific prompts:
 ### With Options
 
 ```
-/codex --model gpt-5.2 analyze this algorithm's complexity
+/codex --model gpt-5.4 analyze this algorithm's complexity
 /codex --sandbox workspace-write generate a test file
 ```
 
