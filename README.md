@@ -1,5 +1,8 @@
 # cc-codex-plugin
 
+> [!NOTE]
+> OpenAI released a [Codex plugin for Claude Code](https://github.com/openai/codex-plugin-cc) which I found to be more useful than this one.
+
 A Claude Code plugin that integrates OpenAI's Codex CLI for detail-oriented code review, planning, and analysis.
 
 ## What is this?
